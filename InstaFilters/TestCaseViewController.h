@@ -19,5 +19,6 @@
 -(IBAction)recordAVideo:(id)sender;
 -(IBAction)filterIt:(id)sender;
 -(IBAction)playIt:(id)sender;
+-(IBAction)pickupAVideo:(id)sender;
 
 @end

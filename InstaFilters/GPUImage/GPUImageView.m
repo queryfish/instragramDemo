@@ -110,7 +110,7 @@ NSString *const kGPUImageDisplayFragmentShaderString = SHADER_STRING
     [displayProgram use];    
 	glEnableVertexAttribArray(displayPositionAttribute);
 	glEnableVertexAttribArray(displayTextureCoordinateAttribute);
-
+    
 
 }
 

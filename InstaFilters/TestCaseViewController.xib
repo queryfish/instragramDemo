@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eRY-tM-3EN">
-                    <rect key="frame" x="24" y="278" width="273" height="43"/>
+                    <rect key="frame" x="24" y="277" width="273" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.1548911" green="0.64438264270000001" blue="0.3971944952" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -26,33 +26,33 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="recordAVideo:" destination="-1" eventType="touchUpInside" id="uRx-1U-QBx"/>
+                        <action selector="recordAVideo:" destination="-1" eventType="touchUpInside" id="WSv-eS-hZn"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RA5-my-eGW">
                     <rect key="frame" x="24" y="349" width="273" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.091248181690260236" green="0.53465840633156547" blue="0.64438264270000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.13167162438637645" green="0.76836845918391061" blue="0.92151409646739135" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Filter It">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="filterIt:" destination="-1" eventType="touchUpInside" id="VFs-WS-Bdx"/>
+                        <action selector="playIt:" destination="-1" eventType="touchUpInside" id="Pvh-AC-2ji"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ghC-Hw-eRE">
                     <rect key="frame" x="24" y="417" width="273" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.039125841860000003" blue="0.0066074419140000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.2386770923877608" blue="0.059641336660110067" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="Play the Filtered">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="playIt:" destination="-1" eventType="touchUpInside" id="mTD-xx-cOl"/>
+                        <action selector="pickupAVideo:" destination="-1" eventType="touchUpInside" id="RVe-kP-g3k"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mIP-ij-Etf">

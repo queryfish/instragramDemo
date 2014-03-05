@@ -167,10 +167,13 @@
 		509487C214FD2929007B42FF /* vignetteMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5094879914FD2929007B42FF /* vignetteMap.png */; };
 		509487C314FD2929007B42FF /* waldenMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5094879A14FD2929007B42FF /* waldenMap.png */; };
 		509487C414FD2929007B42FF /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5094879B14FD2929007B42FF /* xproMap.png */; };
+		B0228B8218C54F5A001D3D1E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0228B8118C54F5A001D3D1E /* MobileCoreServices.framework */; };
 		B0538BAA18C3A97C00A1CEFF /* TestCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */; };
 		B0538BAB18C3A97C00A1CEFF /* TestCaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */; };
 		B0538BAD18C3D29C00A1CEFF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0538BAC18C3D29C00A1CEFF /* MediaPlayer.framework */; };
 		B0538BAF18C40BF000A1CEFF /* IMG_0701.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B0538BAE18C40BF000A1CEFF /* IMG_0701.MOV */; };
+		B0D7679918C68D6000DB0C10 /* IFImageMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D7679818C68D6000DB0C10 /* IFImageMovie.m */; };
+		B0D767A218C69F7B00DB0C10 /* SXGPUImageMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -375,11 +378,16 @@
 		5094879914FD2929007B42FF /* vignetteMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vignetteMap.png; path = Resources_for_IF_Filters/vignetteMap.png; sourceTree = "<group>"; };
 		5094879A14FD2929007B42FF /* waldenMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = waldenMap.png; path = Resources_for_IF_Filters/waldenMap.png; sourceTree = "<group>"; };
 		5094879B14FD2929007B42FF /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xproMap.png; path = Resources_for_IF_Filters/xproMap.png; sourceTree = "<group>"; };
+		B0228B8118C54F5A001D3D1E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B0538BA718C3A97C00A1CEFF /* TestCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseViewController.h; sourceTree = "<group>"; };
 		B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseViewController.m; sourceTree = "<group>"; };
 		B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCaseViewController.xib; sourceTree = "<group>"; };
 		B0538BAC18C3D29C00A1CEFF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B0538BAE18C40BF000A1CEFF /* IMG_0701.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_0701.MOV; sourceTree = "<group>"; };
+		B0D7679718C68D6000DB0C10 /* IFImageMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFImageMovie.h; path = IFImage/IFImageMovie.h; sourceTree = "<group>"; };
+		B0D7679818C68D6000DB0C10 /* IFImageMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFImageMovie.m; path = IFImage/IFImageMovie.m; sourceTree = "<group>"; };
+		B0D767A018C69F7B00DB0C10 /* SXGPUImageMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXGPUImageMovie.h; sourceTree = "<group>"; };
+		B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXGPUImageMovie.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +395,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0228B8218C54F5A001D3D1E /* MobileCoreServices.framework in Frameworks */,
 				B0538BAD18C3D29C00A1CEFF /* MediaPlayer.framework in Frameworks */,
 				500521D014FFCB710039FAC1 /* MessageUI.framework in Frameworks */,
 				500521CA14FFC4440039FAC1 /* Twitter.framework in Frameworks */,
@@ -426,6 +435,7 @@
 		5009A26014FC6861005E7073 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0228B8118C54F5A001D3D1E /* MobileCoreServices.framework */,
 				B0538BAC18C3D29C00A1CEFF /* MediaPlayer.framework */,
 				5009A28014FC6A65005E7073 /* QuartzCore.framework */,
 				5009A27E14FC6A4C005E7073 /* AVFoundation.framework */,
@@ -492,6 +502,8 @@
 				5094857C14FC6C95007B42FF /* GPUImage.h */,
 				5094858914FC6C95007B42FF /* GPUImageFilter.h */,
 				5094858A14FC6C95007B42FF /* GPUImageFilter.m */,
+				B0D767A018C69F7B00DB0C10 /* SXGPUImageMovie.h */,
+				B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */,
 				5094859114FC6C95007B42FF /* GPUImageMovie.h */,
 				5094859214FC6C95007B42FF /* GPUImageMovie.m */,
 				5094859514FC6C95007B42FF /* GPUImageOpenGLESContext.h */,
@@ -606,6 +618,8 @@
 				509486C414FCD1E6007B42FF /* IFImageFilter.m */,
 				509486C514FCD1E6007B42FF /* IFVideoCamera.h */,
 				509486C614FCD1E6007B42FF /* IFVideoCamera.m */,
+				B0D7679718C68D6000DB0C10 /* IFImageMovie.h */,
+				B0D7679818C68D6000DB0C10 /* IFImageMovie.m */,
 			);
 			name = IFImage;
 			sourceTree = "<group>";
@@ -913,11 +927,13 @@
 				5094874614FD1C91007B42FF /* IFInkwellFilter.m in Sources */,
 				5094874B14FD1DA8007B42FF /* IFWaldenFilter.m in Sources */,
 				5094875014FD1F87007B42FF /* IFHefeFilter.m in Sources */,
+				B0D7679918C68D6000DB0C10 /* IFImageMovie.m in Sources */,
 				5094875D14FD2301007B42FF /* IFValenciaFilter.m in Sources */,
 				5094876414FD2463007B42FF /* IFNashvilleFilter.m in Sources */,
 				5094876914FD259C007B42FF /* IF1977Filter.m in Sources */,
 				5094877014FD26E1007B42FF /* IFLordKelvinFilter.m in Sources */,
 				5060FDAE14FDF4EF0018587E /* UIImage+IF.m in Sources */,
+				B0D767A218C69F7B00DB0C10 /* SXGPUImageMovie.m in Sources */,
 				5073FC7514FE69EC00D0C1F2 /* GPUImageMovieWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
