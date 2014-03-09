@@ -96,6 +96,12 @@
     
     if ([SXGPUImageMovie supportsFastTextureUpload])
     {
+        //Test for movie frame YUV color format
+        if (CVPixelBufferGetPlaneCount(_currentBuffer) > 0) // Check for YUV planar inputs to do RGB conversion
+        {
+            NSAssert(0, @"Tested it.");
+        }
+
         CVPixelBufferLockBaseAddress(_currentBuffer, 0);
         
         [GPUImageOpenGLESContext useImageProcessingContext];
@@ -134,8 +140,8 @@
     }
 }
 
-/*
--(void)processFrame {
+
+-(void)processFrame2 {
   // Upload to texture
   CVPixelBufferLockBaseAddress(_currentBuffer, 0);
   int bufferHeight = CVPixelBufferGetHeight(_currentBuffer);
@@ -146,14 +152,14 @@
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bufferWidth, bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(_currentBuffer));
   
   CGSize currentSize = CGSizeMake(bufferWidth, bufferHeight);
-  for (id<SXGPUImageInput> currentTarget in targets)
+  for (id<GPUImageInput> currentTarget in targets)
   {
     [currentTarget setInputSize:currentSize];
     [currentTarget newFrameReady];
   }
   CVPixelBufferUnlockBaseAddress(_currentBuffer, 0);
 }
-*/
+
 
 
 -(void)endProcessing {

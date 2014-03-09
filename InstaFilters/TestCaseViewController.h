@@ -17,8 +17,9 @@
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
 
 -(IBAction)recordAVideo:(id)sender;
--(IBAction)filterIt:(id)sender;
--(IBAction)playIt:(id)sender;
+-(IBAction)chooseFilter:(id)sender;
+-(IBAction)playFiltered:(id)sender;
 -(IBAction)pickupAVideo:(id)sender;
-
+-(IBAction)playPlain:(id)sender;
+-(IBAction)playImage:(id)sender;
 @end

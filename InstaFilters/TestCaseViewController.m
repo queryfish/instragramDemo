@@ -18,29 +18,21 @@
 #import "SXGPUImageMovie.h"
 #import "IFRotationFilter.h"
 #import "IFNormalFilter.h"
+#import "FilterChooser.h"
+#import "IFilterChooser.h"
+
 
 @interface TestCaseViewController ()
 {
     NSURL* mediaURL;
     GPUImageMovie* sourcer;
+    GPUImagePicture* stillImage;
 }
 
 @property (nonatomic) MPMoviePlayerController *mp;
-@property (nonatomic) GPUImageView * afterFilter;
+//@property (nonatomic) GPUImageView * afterFilter;
 
 @property (nonatomic, strong) IFImageFilter *filter;
-@property (nonatomic, strong) GPUImagePicture *sourcePicture1;
-@property (nonatomic, strong) GPUImagePicture *sourcePicture2;
-@property (nonatomic, strong) GPUImagePicture *sourcePicture3;
-@property (nonatomic, strong) GPUImagePicture *sourcePicture4;
-@property (nonatomic, strong) GPUImagePicture *sourcePicture5;
-
-@property (nonatomic, strong) IFImageFilter *internalFilter;
-@property (nonatomic, strong) GPUImagePicture *internalSourcePicture1;
-@property (nonatomic, strong) GPUImagePicture *internalSourcePicture2;
-@property (nonatomic, strong) GPUImagePicture *internalSourcePicture3;
-@property (nonatomic, strong) GPUImagePicture *internalSourcePicture4;
-@property (nonatomic, strong) GPUImagePicture *internalSourcePicture5;
 
 @end
 
@@ -125,51 +117,47 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
--(void)filterIt:(id)sender
-{}
 
--(void)prepareFilters
+
+-(void)chooseFilter:(id)sender
 {
-    self.internalFilter = [[IFEarlybirdFilter alloc] init];
-    self.internalSourcePicture1 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"earlyBirdCurves" ofType:@"png"]]];
-    self.internalSourcePicture2 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"earlybirdOverlayMap" ofType:@"png"]]];
-    self.internalSourcePicture3 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"vignetteMap" ofType:@"png"]]];
-    self.internalSourcePicture4 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"earlybirdBlowout" ofType:@"png"]]];
-    self.internalSourcePicture5 = [[GPUImagePicture alloc] initWithImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"earlybirdMap" ofType:@"png"]]];
-
-    self.sourcePicture1 = self.internalSourcePicture1;
-    self.sourcePicture2 = self.internalSourcePicture2;
-    self.sourcePicture3 = self.internalSourcePicture3;
-    self.sourcePicture4 = self.internalSourcePicture4;
-    self.sourcePicture5 = self.internalSourcePicture5;
-    
-    self.filter = self.internalFilter;
-
-    [self.sourcePicture1 addTarget:self.filter];
-    [self.sourcePicture2 addTarget:self.filter];
-    [self.sourcePicture3 addTarget:self.filter];
-    [self.sourcePicture4 addTarget:self.filter];
-    [self.sourcePicture5 addTarget:self.filter];
-
+    FilterChooser* fc = [[FilterChooser alloc]initWithNibName:@"FilterChooser" bundle:nil];
+    [fc setDoneHandler:^(IFImageFilter *f) {
+        assert(f);
+        self.filter = f;
+    }];
+    [self presentViewController:fc animated:YES completion:nil];
 }
 
--(void)playIt:(id)sender
+-(void)playImage:(id)sender
+{
+    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"rocket" withExtension:@"png"];
+    UIImage* imagesource = [UIImage imageWithContentsOfFile:[sampleURL path]];
+    stillImage = [[GPUImagePicture alloc]initWithImage:imagesource];
+    [stillImage addTarget:self.filter];
+    CGRect frame = self.imageView.frame;
+    frame.origin = CGPointZero;
+    GPUImageView *filterView = [[GPUImageView alloc]initWithFrame:frame];
+    [self.filter addTarget:filterView];
+    [self.imageView addSubview:filterView];
+    [stillImage processImage];
+}
+
+-(void)playFiltered:(id)sender
 {
     //Just normal pipeline
     // GPUImageMovie|->GPUMovieWriter
     //              |->GPUImageView
 
-    [self prepareFilters];
     
-    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"IMG_0701" withExtension:@"MOV"];
+    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"mE" withExtension:@"mov"];
     
     SXGPUImageMovie* movieFile = [[SXGPUImageMovie alloc] initWithURL:sampleURL];
 
-    // Only rotate the video for display, leave orientation the same for recording
-    
-    IFRotationFilter* rotationFilter = [[IFRotationFilter alloc] initWithRotation:kGPUImageRotateRight];
-    [movieFile addTarget:rotationFilter];
-    [rotationFilter addTarget:self.filter];
+    [movieFile addTarget:self.filter];
+//    IFRotationFilter* rotationFilter = [[IFRotationFilter alloc] initWithRotation:kGPUImageRotateRight];
+//    [movieFile addTarget:rotationFilter];
+//    [rotationFilter addTarget:self.filter];
     
     CGRect frame = self.imageView.frame;
     frame.origin = CGPointZero;
@@ -191,6 +179,22 @@
     
 }
 
+-(void)playPlain:(id)sender
+{
+    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"mE" withExtension:@"mov"];
+    SXGPUImageMovie* movieFile = [[SXGPUImageMovie alloc] initWithURL:sampleURL];
+    
+    IFRotationFilter* rotationFilter = [[IFRotationFilter alloc] initWithRotation:kGPUImageRotateRight];
+    [movieFile addTarget:rotationFilter];
+    
+    CGRect frame = self.imageView.frame;
+    frame.origin = CGPointZero;
+    GPUImageView *filterView = [[GPUImageView alloc]initWithFrame:frame];
+    [self.imageView addSubview:filterView];
+    
+    [rotationFilter addTarget:filterView];
+    [movieFile startProcessing];
+}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     

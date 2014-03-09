@@ -168,12 +168,18 @@
 		509487C314FD2929007B42FF /* waldenMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5094879A14FD2929007B42FF /* waldenMap.png */; };
 		509487C414FD2929007B42FF /* xproMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5094879B14FD2929007B42FF /* xproMap.png */; };
 		B0228B8218C54F5A001D3D1E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0228B8118C54F5A001D3D1E /* MobileCoreServices.framework */; };
+		B0527D1518CB693200492503 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = B0527D1418CB693200492503 /* rocket.png */; };
 		B0538BAA18C3A97C00A1CEFF /* TestCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */; };
 		B0538BAB18C3A97C00A1CEFF /* TestCaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */; };
 		B0538BAD18C3D29C00A1CEFF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0538BAC18C3D29C00A1CEFF /* MediaPlayer.framework */; };
 		B0538BAF18C40BF000A1CEFF /* IMG_0701.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B0538BAE18C40BF000A1CEFF /* IMG_0701.MOV */; };
 		B0D7679918C68D6000DB0C10 /* IFImageMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D7679818C68D6000DB0C10 /* IFImageMovie.m */; };
 		B0D767A218C69F7B00DB0C10 /* SXGPUImageMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */; };
+		B0D767B918CA9BCD00DB0C10 /* FilterChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */; };
+		B0D767BB18CAB02E00DB0C10 /* FilterChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */; };
+		B0D767BD18CAB11400DB0C10 /* mE.mov in Resources */ = {isa = PBXBuildFile; fileRef = B0D767BC18CAB11400DB0C10 /* mE.mov */; };
+		B0D767C118CAB1AE00DB0C10 /* IFilterChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */; };
+		B0D767C218CAB1AE00DB0C10 /* IFilterChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -379,6 +385,7 @@
 		5094879A14FD2929007B42FF /* waldenMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = waldenMap.png; path = Resources_for_IF_Filters/waldenMap.png; sourceTree = "<group>"; };
 		5094879B14FD2929007B42FF /* xproMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = xproMap.png; path = Resources_for_IF_Filters/xproMap.png; sourceTree = "<group>"; };
 		B0228B8118C54F5A001D3D1E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B0527D1418CB693200492503 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		B0538BA718C3A97C00A1CEFF /* TestCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseViewController.h; sourceTree = "<group>"; };
 		B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseViewController.m; sourceTree = "<group>"; };
 		B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCaseViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +395,13 @@
 		B0D7679818C68D6000DB0C10 /* IFImageMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFImageMovie.m; path = IFImage/IFImageMovie.m; sourceTree = "<group>"; };
 		B0D767A018C69F7B00DB0C10 /* SXGPUImageMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXGPUImageMovie.h; sourceTree = "<group>"; };
 		B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXGPUImageMovie.m; sourceTree = "<group>"; };
+		B0D767B718CA9BCD00DB0C10 /* FilterChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterChooser.h; sourceTree = "<group>"; };
+		B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterChooser.m; sourceTree = "<group>"; };
+		B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterChooser.xib; sourceTree = "<group>"; };
+		B0D767BC18CAB11400DB0C10 /* mE.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = mE.mov; sourceTree = "<group>"; };
+		B0D767BE18CAB1AE00DB0C10 /* IFilterChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFilterChooser.h; sourceTree = "<group>"; };
+		B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFilterChooser.m; sourceTree = "<group>"; };
+		B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFilterChooser.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +477,12 @@
 				5009A27114FC6861005E7073 /* IFAppDelegate.m */,
 				509485E014FC7132007B42FF /* IFRootViewController.h */,
 				509485E114FC7132007B42FF /* IFRootViewController.m */,
+				B0D767BE18CAB1AE00DB0C10 /* IFilterChooser.h */,
+				B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */,
+				B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */,
+				B0D767B718CA9BCD00DB0C10 /* FilterChooser.h */,
+				B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */,
+				B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */,
 				B0538BA718C3A97C00A1CEFF /* TestCaseViewController.h */,
 				B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */,
 				B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */,
@@ -474,6 +494,8 @@
 		5009A26814FC6861005E7073 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0527D1418CB693200492503 /* rocket.png */,
+				B0D767BC18CAB11400DB0C10 /* mE.mov */,
 				B0538BAE18C40BF000A1CEFF /* IMG_0701.MOV */,
 				5009A26914FC6861005E7073 /* InstaFilters-Info.plist */,
 				5009A26A14FC6861005E7073 /* InfoPlist.strings */,
@@ -837,6 +859,7 @@
 				509487A614FD2929007B42FF /* earlyBirdCurves.png in Resources */,
 				509487A714FD2929007B42FF /* earlybirdMap.png in Resources */,
 				509487A814FD2929007B42FF /* earlybirdOverlayMap.png in Resources */,
+				B0D767C218CAB1AE00DB0C10 /* IFilterChooser.xib in Resources */,
 				509487A914FD2929007B42FF /* edgeBurn.png in Resources */,
 				509487AA14FD2929007B42FF /* hefeGradientMap.png in Resources */,
 				509487AB14FD2929007B42FF /* hefeMap.png in Resources */,
@@ -848,15 +871,18 @@
 				509487B114FD2929007B42FF /* kelvinMap.png in Resources */,
 				509487B214FD2929007B42FF /* lomoMap.png in Resources */,
 				509487B314FD2929007B42FF /* nashvilleMap.png in Resources */,
+				B0D767BD18CAB11400DB0C10 /* mE.mov in Resources */,
 				509487B414FD2929007B42FF /* overlayMap.png in Resources */,
 				509487B514FD2929007B42FF /* riseMap.png in Resources */,
 				509487B714FD2929007B42FF /* softLight.png in Resources */,
 				509487B814FD2929007B42FF /* sutroCurves.png in Resources */,
+				B0527D1518CB693200492503 /* rocket.png in Resources */,
 				509487B914FD2929007B42FF /* sutroEdgeBurn.png in Resources */,
 				509487BA14FD2929007B42FF /* sutroMetal.png in Resources */,
 				509487BB14FD2929007B42FF /* toasterColorShift.png in Resources */,
 				509487BC14FD2929007B42FF /* toasterCurves.png in Resources */,
 				509487BD14FD2929007B42FF /* toasterMetal.png in Resources */,
+				B0D767BB18CAB02E00DB0C10 /* FilterChooser.xib in Resources */,
 				509487BE14FD2929007B42FF /* toasterOverlayMapWarm.png in Resources */,
 				509487BF14FD2929007B42FF /* toasterSoftLight.png in Resources */,
 				509487C014FD2929007B42FF /* valenciaGradientMap.png in Resources */,
@@ -910,6 +936,7 @@
 				509485E214FC7132007B42FF /* IFRootViewController.m in Sources */,
 				509485E614FC78EE007B42FF /* IFFiltersViewController.m in Sources */,
 				509486C714FCD1E6007B42FF /* IFImageFilter.m in Sources */,
+				B0D767C118CAB1AE00DB0C10 /* IFilterChooser.m in Sources */,
 				509486C814FCD1E6007B42FF /* IFVideoCamera.m in Sources */,
 				B0538BAA18C3A97C00A1CEFF /* TestCaseViewController.m in Sources */,
 				509486CD14FCDA33007B42FF /* IFSutroFilter.m in Sources */,
@@ -919,6 +946,7 @@
 				509486F114FD025C007B42FF /* IFRiseFilter.m in Sources */,
 				509486F614FD044E007B42FF /* IFHudsonFilter.m in Sources */,
 				5094870F14FD0F27007B42FF /* IFXproIIFilter.m in Sources */,
+				B0D767B918CA9BCD00DB0C10 /* FilterChooser.m in Sources */,
 				5094871414FD11B9007B42FF /* IFSierraFilter.m in Sources */,
 				5094871914FD1372007B42FF /* IFLomofiFilter.m in Sources */,
 				5094871E14FD15D4007B42FF /* IFEarlybirdFilter.m in Sources */,
