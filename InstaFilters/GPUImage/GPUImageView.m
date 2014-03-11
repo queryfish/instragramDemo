@@ -178,7 +178,7 @@ NSString *const kGPUImageDisplayFragmentShaderString = SHADER_STRING
 #pragma mark -
 #pragma mark GPUInput protocol
 
-- (void)newFrameReady;
+- (void)newFrameReady
 {
     [GPUImageOpenGLESContext useImageProcessingContext];
     [self setDisplayFramebuffer];
@@ -214,6 +214,27 @@ NSString *const kGPUImageDisplayFragmentShaderString = SHADER_STRING
     [self presentFramebuffer];
 }
 
+//- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
+//{
+//    [GPUImageContext setActiveShaderProgram:displayProgram];
+//    [self setDisplayFramebuffer];
+//    
+//    glClearColor(backgroundColorRed, backgroundColorGreen, backgroundColorBlue, backgroundColorAlpha);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    
+//    glActiveTexture(GL_TEXTURE4);
+//    glBindTexture(GL_TEXTURE_2D, inputTextureForDisplay);
+//    glUniform1i(displayInputTextureUniform, 4);
+//    
+//    glVertexAttribPointer(displayPositionAttribute, 2, GL_FLOAT, 0, 0, imageVertices);
+//    glVertexAttribPointer(displayTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, [GPUImageView textureCoordinatesForRotation:inputRotation]);
+//    
+//    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+//    
+//    [self presentFramebuffer];
+//
+//}
+
 - (NSInteger)nextAvailableTextureIndex;
 {
     return 0;
@@ -226,6 +247,7 @@ NSString *const kGPUImageDisplayFragmentShaderString = SHADER_STRING
 
 - (void)setInputSize:(CGSize)newSize;
 {
+    
 }
 
 

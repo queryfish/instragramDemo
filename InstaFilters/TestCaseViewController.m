@@ -20,13 +20,14 @@
 #import "IFNormalFilter.h"
 #import "FilterChooser.h"
 #import "IFilterChooser.h"
+#import "GPUImageRawData.h"
 
-
-@interface TestCaseViewController ()
+@interface TestCaseViewController () <GPUImageRawDataProcessor,GPUImageTextureDelegate>
 {
     NSURL* mediaURL;
     GPUImageMovie* sourcer;
     GPUImagePicture* stillImage;
+    UIImageView * frameView;
 }
 
 @property (nonatomic) MPMoviePlayerController *mp;
@@ -181,20 +182,55 @@
 
 -(void)playPlain:(id)sender
 {
+//    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"IMG_0701" withExtension:@"MOV"];
     NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"mE" withExtension:@"mov"];
     SXGPUImageMovie* movieFile = [[SXGPUImageMovie alloc] initWithURL:sampleURL];
+//    GPUImageMovie* movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
     
-    IFRotationFilter* rotationFilter = [[IFRotationFilter alloc] initWithRotation:kGPUImageRotateRight];
-    [movieFile addTarget:rotationFilter];
-    
+//    IFRotationFilter* rotationFilter = [[IFRotationFilter alloc] initWithRotation:kGPUImageRotateRight];
+//    [movieFile addTarget:rotationFilter];
+//    
     CGRect frame = self.imageView.frame;
     frame.origin = CGPointZero;
     GPUImageView *filterView = [[GPUImageView alloc]initWithFrame:frame];
     [self.imageView addSubview:filterView];
     
-    [rotationFilter addTarget:filterView];
+    [movieFile addTarget:filterView];
     [movieFile startProcessing];
 }
+
+-(void)outputFrames:(id)sender
+{
+    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"mE" withExtension:@"mov"];
+    SXGPUImageMovie* movieFile = [[SXGPUImageMovie alloc] initWithURL:sampleURL];
+
+    CGRect frame = self.imageView.frame;
+    frame.origin = CGPointZero;
+    
+    //Without filters
+    GPUImageRawData* rawSource = [[GPUImageRawData alloc]initWithImageSize:(CGSize){300,300}];
+    [rawSource setDelegate:self];
+    [movieFile addTarget:rawSource];
+    [movieFile startProcessing];
+
+}
+
+//#delegate Raw data delegate
+- (void)newImageFrameAvailableFromDataSource:(GPUImageRawData *)rawDataSource;
+{
+    static int counter = 0;
+    NSLog(@"Processing Frame %d", counter++);
+    //
+    NSUInteger len = 300 * 300 * 4* sizeof(GLubyte);
+    NSData* data = [NSData dataWithBytes:[rawDataSource rawBytesForImage] length:len];
+    UIImage* image = [UIImage imageWithData:data];
+    NSData* outdata = UIImageJPEGRepresentation(image, 1.0);
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    [outdata writeToURL:[NSURL URLWithString:basePath] atomically:YES];
+    [self.imageView setImage:image];
+}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
@@ -217,5 +253,7 @@
     });
     
 }
+
+
 
 @end

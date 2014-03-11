@@ -1,6 +1,6 @@
 #import "GPUImageFilter.h"
-
-typedef enum { kGPUImageRotateLeft, kGPUImageRotateRight, kGPUImageFlipVertical, kGPUImageFlipHorizonal} GPUImageRotationMode;
+#import "GPUImageContext.h"
+//typedef enum { kGPUImageRotateLeft, kGPUImageRotateRight, kGPUImageFlipVertical, kGPUImageFlipHorizonal} GPUImageRotationMode;
 
 @interface GPUImageRotationFilter : GPUImageFilter
 {

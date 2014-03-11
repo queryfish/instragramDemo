@@ -430,7 +430,7 @@
             
             image = [image resizedImage:[self properSizeForResizingLargeImage:image] interpolationQuality:kCGInterpolationHigh];
             image = [image imageRotatedByDegrees:90.0f];            
-            image = [image cropImageWithBounds:CGRectMake(0, 0, 640, 640)];
+            image = [image cropImageWithBounds:CGRectMake(0, 0, 840, 540)];
             
             self.rawImage = image;
             [self switchFilter:currentFilterType];

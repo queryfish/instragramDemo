@@ -22,4 +22,7 @@
 -(IBAction)pickupAVideo:(id)sender;
 -(IBAction)playPlain:(id)sender;
 -(IBAction)playImage:(id)sender;
+
+-(IBAction)outputFrames:(id)sender;
+
 @end

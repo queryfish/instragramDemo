@@ -32,11 +32,15 @@ typedef void (*GLLogFunction) (GLuint program,
 @implementation GLProgram
 // START:init
 
+@synthesize initialized = _initialized;
+
 - (id)initWithVertexShaderString:(NSString *)vShaderString 
             fragmentShaderString:(NSString *)fShaderString;
 {
     if ((self = [super init])) 
     {
+        _initialized = NO;
+        
         attributes = [[NSMutableArray alloc] init];
         uniforms = [[NSMutableArray alloc] init];
         program = glCreateProgram();
@@ -93,6 +97,8 @@ typedef void (*GLLogFunction) (GLuint program,
                  type:(GLenum)type 
                string:(NSString *)shaderString
 {
+//    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
     GLint status;
     const GLchar *source;
     
@@ -123,6 +129,9 @@ typedef void (*GLLogFunction) (GLuint program,
 		}
 	}	
 	
+//    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+//    NSLog(@"Compiled in %f ms", linkTime * 1000.0);
+
     return status == GL_TRUE;
 }
 // END:compile
@@ -134,7 +143,7 @@ typedef void (*GLLogFunction) (GLuint program,
     {
         [attributes addObject:attributeName];
         glBindAttribLocation(program, 
-                             [attributes indexOfObject:attributeName], 
+                             (GLuint)[attributes indexOfObject:attributeName],
                              [attributeName UTF8String]);
     }
 }
@@ -142,7 +151,7 @@ typedef void (*GLLogFunction) (GLuint program,
 // START:indexmethods
 - (GLuint)attributeIndex:(NSString *)attributeName
 {
-    return [attributes indexOfObject:attributeName];
+    return (GLuint)[attributes indexOfObject:attributeName];
 }
 - (GLuint)uniformIndex:(NSString *)uniformName
 {
@@ -153,20 +162,32 @@ typedef void (*GLLogFunction) (GLuint program,
 // START:link
 - (BOOL)link
 {
+//    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
     GLint status;
     
     glLinkProgram(program);
-    glValidateProgram(program);
     
     glGetProgramiv(program, GL_LINK_STATUS, &status);
     if (status == GL_FALSE)
         return NO;
     
     if (vertShader)
+    {
         glDeleteShader(vertShader);
+        vertShader = 0;
+    }
     if (fragShader)
+    {
         glDeleteShader(fragShader);
+        fragShader = 0;
+    }
     
+    self.initialized = YES;
+
+//    CFAbsoluteTime linkTime = (CFAbsoluteTimeGetCurrent() - startTime);
+//    NSLog(@"Linked in %f ms", linkTime * 1000.0);
+
     return YES;
 }
 // END:link
@@ -238,7 +259,6 @@ typedef void (*GLLogFunction) (GLuint program,
 // START:dealloc
 - (void)dealloc
 {
-  
     if (vertShader)
         glDeleteShader(vertShader);
         
