@@ -15,9 +15,9 @@ NSString *const kIFAmaroShaderString = SHADER_STRING
  varying highp vec2 textureCoordinate;
  
  uniform sampler2D inputImageTexture;
- uniform sampler2D inputImageTexture2; //blowout;
- uniform sampler2D inputImageTexture3; //overlay;
- uniform sampler2D inputImageTexture4; //map
+ uniform sampler2D inputImageTexture2; //blackboard1024
+ uniform sampler2D inputImageTexture3; //overlayMap.png
+ uniform sampler2D inputImageTexture4; //amaroMap
  
  void main()
  {
@@ -35,7 +35,7 @@ NSString *const kIFAmaroShaderString = SHADER_STRING
      mapped.b = texture2D(inputImageTexture4, vec2(texel.b, .83333)).b;
      mapped.a = 1.0;
      
-     gl_FragColor = mapped;
+     gl_FragColor = texel;
  }
 );
 

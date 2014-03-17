@@ -261,6 +261,7 @@ NSString *const kGPUImageDataFragmentShaderString = SHADER_STRING
     }
     else
     {
+        NSLog(@"original buffer");
         [GPUImageOpenGLESContext useImageProcessingContext];
         [self renderAtInternalSize];
         glReadPixels(0, 0, imageSize.width, imageSize.height, GL_RGBA, GL_UNSIGNED_BYTE, _rawBytesForImage);

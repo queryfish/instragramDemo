@@ -10,19 +10,17 @@
 
 @interface TestCaseViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-    IBOutlet UIView *cameraOverlayView;
     UIImagePickerController *imagePicker;
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
+@property (nonatomic, strong) IBOutlet UILabel* filterName;
 
 -(IBAction)recordAVideo:(id)sender;
 -(IBAction)chooseFilter:(id)sender;
 -(IBAction)playFiltered:(id)sender;
--(IBAction)pickupAVideo:(id)sender;
--(IBAction)playPlain:(id)sender;
--(IBAction)playImage:(id)sender;
 
--(IBAction)outputFrames:(id)sender;
+-(IBAction)playImage:(id)sender;
+-(IBAction)switchMode:(id)sender;
 
 @end

@@ -10,7 +10,7 @@
 }
 
 @property (readwrite, retain) NSURL *url;
-
+@property (nonatomic, strong) void (^doneHandler)();
 -(id)initWithURL:(NSURL *)url;
 -(void)startProcessing;
 -(void)endProcessing;

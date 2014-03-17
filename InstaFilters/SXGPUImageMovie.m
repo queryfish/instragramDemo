@@ -66,6 +66,7 @@
     
     NSMutableDictionary *outputSettings = [NSMutableDictionary dictionary];
     [outputSettings setObject: [NSNumber numberWithInt:kCVPixelFormatType_32BGRA]  forKey: (NSString*)kCVPixelBufferPixelFormatTypeKey];
+      
     AVAssetReaderTrackOutput *readerVideoTrackOutput = [AVAssetReaderTrackOutput assetReaderTrackOutputWithTrack:[[inputAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] outputSettings:outputSettings];
         
     // Assign the tracks to the reader and start to read
@@ -75,8 +76,8 @@
       NSLog(@"Error reading");
     }
     
-    while (reader.status == AVAssetReaderStatusReading) {
-      
+    while (reader.status == AVAssetReaderStatusReading)
+    {
       CMSampleBufferRef sampleBufferRef = [readerVideoTrackOutput copyNextSampleBuffer];
       if (sampleBufferRef) {
         CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBufferRef);
@@ -86,13 +87,15 @@
         CFRelease(sampleBufferRef);
       }
     }
+    if(self.doneHandler)
+        self.doneHandler();
   }];
 }
-
 
 -(void)processFrame{
     int bufferWidth = CVPixelBufferGetWidth(_currentBuffer);
     int bufferHeight = CVPixelBufferGetHeight(_currentBuffer);
+//    NSLog(@"Frame Size w@%d h@%d",bufferWidth,bufferHeight);
     
     if ([SXGPUImageMovie supportsFastTextureUpload])
     {
@@ -140,7 +143,7 @@
     }
 }
 
-
+//The Else part
 -(void)processFrame2 {
   // Upload to texture
   CVPixelBufferLockBaseAddress(_currentBuffer, 0);

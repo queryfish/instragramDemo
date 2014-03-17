@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2094846518CF62C2002A18FD /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2094846418CF62C2002A18FD /* sample.mp4 */; };
 		500521CA14FFC4440039FAC1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500521C914FFC4430039FAC1 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		500521D014FFCB710039FAC1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500521CF14FFCB700039FAC1 /* MessageUI.framework */; };
 		500521D3150006A30039FAC1 /* sierraMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 500521D1150006A00039FAC1 /* sierraMap.png */; };
@@ -176,8 +177,6 @@
 		B0D767B918CA9BCD00DB0C10 /* FilterChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */; };
 		B0D767BB18CAB02E00DB0C10 /* FilterChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */; };
 		B0D767BD18CAB11400DB0C10 /* mE.mov in Resources */ = {isa = PBXBuildFile; fileRef = B0D767BC18CAB11400DB0C10 /* mE.mov */; };
-		B0D767C118CAB1AE00DB0C10 /* IFilterChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */; };
-		B0D767C218CAB1AE00DB0C10 /* IFilterChooser.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */; };
 		B0DECD7018CCBE7E000096D7 /* GPUImageMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DECD6F18CCBE7E000096D7 /* GPUImageMovie.m */; };
 		B0DECD7318CCC06A000096D7 /* GPUImageContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DECD7218CCC06A000096D7 /* GPUImageContext.m */; };
 		B0DECD7618CCC258000096D7 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DECD7518CCC258000096D7 /* GLProgram.m */; };
@@ -185,6 +184,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2094846418CF62C2002A18FD /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		500521C914FFC4430039FAC1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		500521CF14FFCB700039FAC1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		500521D1150006A00039FAC1 /* sierraMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sierraMap.png; path = Resources_for_IF_Filters/sierraMap.png; sourceTree = "<group>"; };
@@ -397,9 +397,6 @@
 		B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterChooser.m; sourceTree = "<group>"; };
 		B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterChooser.xib; sourceTree = "<group>"; };
 		B0D767BC18CAB11400DB0C10 /* mE.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = mE.mov; sourceTree = "<group>"; };
-		B0D767BE18CAB1AE00DB0C10 /* IFilterChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFilterChooser.h; sourceTree = "<group>"; };
-		B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFilterChooser.m; sourceTree = "<group>"; };
-		B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFilterChooser.xib; sourceTree = "<group>"; };
 		B0DECD6E18CCBE7E000096D7 /* GPUImageMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageMovie.h; sourceTree = "<group>"; };
 		B0DECD6F18CCBE7E000096D7 /* GPUImageMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageMovie.m; sourceTree = "<group>"; };
 		B0DECD7118CCC06A000096D7 /* GPUImageContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageContext.h; sourceTree = "<group>"; };
@@ -483,13 +480,11 @@
 				5009A27114FC6861005E7073 /* IFAppDelegate.m */,
 				509485E014FC7132007B42FF /* IFRootViewController.h */,
 				509485E114FC7132007B42FF /* IFRootViewController.m */,
-				B0D767BE18CAB1AE00DB0C10 /* IFilterChooser.h */,
-				B0D767BF18CAB1AE00DB0C10 /* IFilterChooser.m */,
-				B0D767C018CAB1AE00DB0C10 /* IFilterChooser.xib */,
 				B0D767B718CA9BCD00DB0C10 /* FilterChooser.h */,
 				B0D767B818CA9BCD00DB0C10 /* FilterChooser.m */,
 				B0D767BA18CAB02E00DB0C10 /* FilterChooser.xib */,
 				B0538BA718C3A97C00A1CEFF /* TestCaseViewController.h */,
+				2094846418CF62C2002A18FD /* sample.mp4 */,
 				B0538BA818C3A97C00A1CEFF /* TestCaseViewController.m */,
 				B0538BA918C3A97C00A1CEFF /* TestCaseViewController.xib */,
 				5009A26814FC6861005E7073 /* Supporting Files */,
@@ -525,6 +520,8 @@
 			children = (
 				B0DECD7A18CCC509000096D7 /* GPUImageMovieWriter.h */,
 				B0DECD7B18CCC509000096D7 /* GPUImageMovieWriter.m */,
+				B0D767A018C69F7B00DB0C10 /* SXGPUImageMovie.h */,
+				B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */,
 				B0DECD7418CCC258000096D7 /* GLProgram.h */,
 				B0DECD7518CCC258000096D7 /* GLProgram.m */,
 				5094857A14FC6C95007B42FF /* Old_GLProgram.h */,
@@ -534,8 +531,6 @@
 				5094858A14FC6C95007B42FF /* GPUImageFilter.m */,
 				B0DECD7118CCC06A000096D7 /* GPUImageContext.h */,
 				B0DECD7218CCC06A000096D7 /* GPUImageContext.m */,
-				B0D767A018C69F7B00DB0C10 /* SXGPUImageMovie.h */,
-				B0D767A118C69F7B00DB0C10 /* SXGPUImageMovie.m */,
 				B0DECD6E18CCBE7E000096D7 /* GPUImageMovie.h */,
 				B0DECD6F18CCBE7E000096D7 /* GPUImageMovie.m */,
 				5094859514FC6C95007B42FF /* GPUImageOpenGLESContext.h */,
@@ -869,7 +864,6 @@
 				509487A614FD2929007B42FF /* earlyBirdCurves.png in Resources */,
 				509487A714FD2929007B42FF /* earlybirdMap.png in Resources */,
 				509487A814FD2929007B42FF /* earlybirdOverlayMap.png in Resources */,
-				B0D767C218CAB1AE00DB0C10 /* IFilterChooser.xib in Resources */,
 				509487A914FD2929007B42FF /* edgeBurn.png in Resources */,
 				509487AA14FD2929007B42FF /* hefeGradientMap.png in Resources */,
 				509487AB14FD2929007B42FF /* hefeMap.png in Resources */,
@@ -912,6 +906,7 @@
 				500521EE150006D70039FAC1 /* glCameraCaptureButtonPressed@2x.png in Resources */,
 				500521EF150006D70039FAC1 /* glCameraLibrary.png in Resources */,
 				500521F0150006D70039FAC1 /* glCameraLibrary@2x.png in Resources */,
+				2094846518CF62C2002A18FD /* sample.mp4 in Resources */,
 				500521F1150006D70039FAC1 /* glCameraReject.png in Resources */,
 				500521F2150006D70039FAC1 /* glCameraReject@2x.png in Resources */,
 				500521F3150006D70039FAC1 /* glCameraRejectDisabled.png in Resources */,
@@ -948,7 +943,6 @@
 				509485E614FC78EE007B42FF /* IFFiltersViewController.m in Sources */,
 				509486C714FCD1E6007B42FF /* IFImageFilter.m in Sources */,
 				B0DECD7318CCC06A000096D7 /* GPUImageContext.m in Sources */,
-				B0D767C118CAB1AE00DB0C10 /* IFilterChooser.m in Sources */,
 				509486C814FCD1E6007B42FF /* IFVideoCamera.m in Sources */,
 				B0538BAA18C3A97C00A1CEFF /* TestCaseViewController.m in Sources */,
 				509486CD14FCDA33007B42FF /* IFSutroFilter.m in Sources */,

@@ -13,6 +13,6 @@
 
 @interface FilterChooser : UITableViewController
 
-@property (nonatomic, strong) void (^doneHandler)(IFImageFilter*);
-@property (nonatomic, strong) GPUImagePicture* currentFilter;
+@property (nonatomic, strong) void (^doneHandler)( NSString*, NSInteger);
+//@property (nonatomic, strong) GPUImagePicture* currentFilter;
 @end
