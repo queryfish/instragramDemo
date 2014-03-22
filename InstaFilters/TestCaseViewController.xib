@@ -7,8 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestCaseViewController">
             <connections>
+                <outlet property="filterButton" destination="RA5-my-eGW" id="NlT-mT-kUd"/>
                 <outlet property="filterName" destination="mqc-z8-yJE" id="nVN-pr-rem"/>
                 <outlet property="imageView" destination="mIP-ij-Etf" id="5lN-Z1-GKD"/>
+                <outlet property="playButton" destination="ghC-Hw-eRE" id="dxr-bX-7m7"/>
+                <outlet property="recorderButton" destination="Pzd-eP-5Vd" id="XmN-oc-pWc"/>
+                <outlet property="saveButton" destination="oqZ-g5-0Ew" id="cks-Ta-Usd"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -18,63 +22,66 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RA5-my-eGW">
-                    <rect key="frame" x="24" y="304" width="273" height="43"/>
+                    <rect key="frame" x="210" y="292" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.13167162438637645" green="0.76836845918391061" blue="0.92151409646739135" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="backgroundColor" red="0.48777175350000002" green="0.80000000000000004" blue="0.42491081180000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="Filter It">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="chooseFilter:" destination="-1" eventType="touchUpInside" id="vpq-BH-AP1"/>
+                        <action selector="filter:" destination="-1" eventType="touchUpInside" id="djh-pn-ZNt"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ghC-Hw-eRE">
-                    <rect key="frame" x="24" y="355" width="126" height="43"/>
+                    <rect key="frame" x="80" y="400" width="70" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.2386770923877608" blue="0.059641336660110067" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Play the Filtered">
+                    <color key="backgroundColor" red="0.1314821464" green="0.57629520680000001" blue="0.9404296875" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Play">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="playFiltered:" destination="-1" eventType="touchUpInside" id="UC0-18-iIq"/>
+                        <action selector="play:" destination="-1" eventType="touchUpInside" id="AYU-em-vOC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o2i-Ci-iXa">
-                    <rect key="frame" x="171" y="355" width="126" height="43"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oqZ-g5-0Ew">
+                    <rect key="frame" x="182" y="400" width="70" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.23867709240000001" blue="0.059641336660000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Play Image">
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <state key="normal" title="Save It">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="playImage:" destination="-1" eventType="touchUpInside" id="uh1-Q6-B7K"/>
+                        <action selector="save:" destination="-1" eventType="touchUpInside" id="Tx9-9j-4U3"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mIP-ij-Etf">
-                    <rect key="frame" x="24" y="33" width="266" height="207"/>
+                    <rect key="frame" x="0.0" y="33" width="320" height="222"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqc-z8-yJE">
-                    <rect key="frame" x="24" y="269" width="266" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqc-z8-yJE">
+                    <rect key="frame" x="24" y="257" width="266" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pzd-eP-5Vd">
-                    <rect key="frame" x="24" y="417" width="273" height="43"/>
+                    <rect key="frame" x="13" y="292" width="100" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                     <state key="normal" title="Record">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="recordAVideo:" destination="-1" eventType="touchUpInside" id="Qzy-mu-sBu"/>
+                        <action selector="record:" destination="-1" eventType="touchUpInside" id="SGt-dP-Hfc"/>
                     </connections>
                 </button>
             </subviews>

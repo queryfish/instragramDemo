@@ -185,6 +185,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     selectedIndex = indexPath.row;
+    
     if (self.doneHandler) {
         self.doneHandler(self.filterTypeNames[indexPath.row], selectedIndex);
     }

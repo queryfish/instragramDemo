@@ -117,7 +117,6 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         NSLog(@"Error: %@", error);
     }
     
-    
     NSMutableDictionary * outputSettings = [[NSMutableDictionary alloc] init];
     [outputSettings setObject: AVVideoCodecH264 forKey: AVVideoCodecKey];
     [outputSettings setObject: [NSNumber numberWithInt: videoSize.width] forKey: AVVideoWidthKey];
@@ -140,7 +139,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
                                                            nil];
 //    NSDictionary *sourcePixelBufferAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:kCVPixelFormatType_32ARGB], kCVPixelBufferPixelFormatTypeKey,
 //                                                           nil];
-        
+    
     assetWriterPixelBufferInput = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:assetWriterVideoInput sourcePixelBufferAttributes:sourcePixelBufferAttributesDictionary];
     
     [assetWriter addInput:assetWriterVideoInput];
@@ -149,14 +148,18 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
 - (void)startRecording;
 {
     startTime = [NSDate date];
-    [assetWriter startWriting];
+    BOOL nobad = [assetWriter startWriting];
+    if (!nobad) {
+        NSLog(@"STATUS %ld, ERROR:%@", assetWriter.status, assetWriter.error.description);
+    }
     [assetWriter startSessionAtSourceTime:kCMTimeZero];
 }
 
 - (void)finishRecording;
 {
     [assetWriterVideoInput markAsFinished];
-    [assetWriter finishWriting];    
+    [assetWriter finishWriting];
+    NSLog(@"Finish Writing");
 }
 
 #pragma mark -
@@ -256,7 +259,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
 {
     if (!assetWriterVideoInput.readyForMoreMediaData)
     {
-//        NSLog(@"Had to drop a frame");
+        NSLog(@"Had to drop a frame");
         return;
     }
 
@@ -269,8 +272,8 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     CVReturn status = CVPixelBufferPoolCreatePixelBuffer (NULL, [assetWriterPixelBufferInput pixelBufferPool], &pixel_buffer);
     if ((pixel_buffer == NULL) || (status != kCVReturnSuccess))
     {
-        return;
-//        NSLog(@"Couldn't pull pixel buffer from pool");
+        NSLog(@"Couldn't pull pixel buffer from pool");
+//        return;
 //        glReadPixels(0, 0, videoSize.width, videoSize.height, GL_RGBA, GL_UNSIGNED_BYTE, frameData);
 //
 //        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -286,7 +289,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     {
         CVPixelBufferLockBaseAddress(pixel_buffer, 0);
         
-//        NSLog(@"Grabbing pixel buffer");
+        NSLog(@"Grabbing pixel buffer");
 
 
         GLubyte *pixelBufferData = (GLubyte *)CVPixelBufferGetBaseAddress(pixel_buffer);
@@ -302,7 +305,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     } 
     else 
     {
-//        NSLog(@"Recorded pixel buffer at time: %lld", currentTime.value);
+        NSLog(@"Recorded pixel buffer at time: %lld", currentTime.value);
     }
     CVPixelBufferUnlockBaseAddress(pixel_buffer, 0);
     

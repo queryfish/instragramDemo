@@ -16,11 +16,16 @@
 @property (nonatomic, strong) IBOutlet UIImageView* imageView;
 @property (nonatomic, strong) IBOutlet UILabel* filterName;
 
--(IBAction)recordAVideo:(id)sender;
--(IBAction)chooseFilter:(id)sender;
--(IBAction)playFiltered:(id)sender;
+@property (nonatomic, strong) IBOutlet UIButton* recorderButton;
+@property (nonatomic, strong) IBOutlet UIButton* filterButton;
+@property (nonatomic, strong) IBOutlet UIButton* playButton;
+@property (nonatomic, strong) IBOutlet UIButton* saveButton;
 
--(IBAction)playImage:(id)sender;
--(IBAction)switchMode:(id)sender;
+
+-(IBAction)record:(id)sender;
+-(IBAction)filter:(id)sender;
+
+-(IBAction)play:(id)sender;
+-(IBAction)save:(id)sender;
 
 @end

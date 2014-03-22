@@ -1,7 +1,10 @@
 #import "SXGPUImageMovie.h"
 
 @implementation SXGPUImageMovie
-
+{
+    CMTime previousFrameTime;
+    CFAbsoluteTime previousActualFrameTime;
+}
 @synthesize url = _url;
 
 
@@ -75,18 +78,43 @@
       // Handle error
       NSLog(@"Error reading");
     }
-    
+      previousFrameTime = kCMTimeZero;
+      previousActualFrameTime = CFAbsoluteTimeGetCurrent();
+
+      
     while (reader.status == AVAssetReaderStatusReading)
     {
-      CMSampleBufferRef sampleBufferRef = [readerVideoTrackOutput copyNextSampleBuffer];
-      if (sampleBufferRef) {
-        CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBufferRef);
-        _currentBuffer = pixelBuffer;
-        [self performSelectorOnMainThread:@selector(processFrame) withObject:nil waitUntilDone:YES];
-        CMSampleBufferInvalidate(sampleBufferRef);
-        CFRelease(sampleBufferRef);
+        CMSampleBufferRef sampleBufferRef = [readerVideoTrackOutput copyNextSampleBuffer];
+        if (sampleBufferRef)
+        {
+            BOOL _playAtActualSpeed = YES;
+            if (_playAtActualSpeed)
+            {
+                // Do this outside of the video processing queue to not slow that down while waiting
+                CMTime currentSampleTime = CMSampleBufferGetOutputPresentationTimeStamp(sampleBufferRef);
+                CMTime differenceFromLastFrame = CMTimeSubtract(currentSampleTime, previousFrameTime);
+                CFAbsoluteTime currentActualTime = CFAbsoluteTimeGetCurrent();
+              
+                CGFloat frameTimeDifference = CMTimeGetSeconds(differenceFromLastFrame);
+                CGFloat actualTimeDifference = currentActualTime - previousActualFrameTime;
+              
+                if (frameTimeDifference > actualTimeDifference)
+                {
+                    usleep(1000000.0 * (frameTimeDifference - actualTimeDifference));
+                }
+              
+                previousFrameTime = currentSampleTime;
+                previousActualFrameTime = CFAbsoluteTimeGetCurrent();
+            }
+
+            CVImageBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBufferRef);
+            _currentBuffer = pixelBuffer;
+            [self performSelectorOnMainThread:@selector(processFrame) withObject:nil waitUntilDone:YES];
+            CMSampleBufferInvalidate(sampleBufferRef);
+            CFRelease(sampleBufferRef);
       }
     }
+    
     if(self.doneHandler)
         self.doneHandler();
   }];
